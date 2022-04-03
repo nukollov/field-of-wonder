@@ -10,6 +10,8 @@ public class Game {
     private String hiddenWord;
 
     public String Start(){
-        return "";
+        int index = 0 + (int)(Math.random() * (words.length));
+        hiddenWord = words[index];
+        return hiddenWord;
     }
 }
