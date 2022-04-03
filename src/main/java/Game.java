@@ -16,6 +16,8 @@ public class Game {
     }
 
     public String InputAnswer(String answer){
-        return "";
+        userAnswer = answer;
+        return userAnswer;
     }
+
 }
