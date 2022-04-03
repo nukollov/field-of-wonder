@@ -14,4 +14,8 @@ public class Game {
         hiddenWord = words[index];
         return hiddenWord;
     }
+
+    public String InputAnswer(String answer){
+        return "";
+    }
 }
