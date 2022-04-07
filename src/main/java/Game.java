@@ -3,9 +3,9 @@ import lombok.Getter;
 @Getter
 
 public class Game {
-    private String[] words = {"собака", "автомобиль", "цветок", "дом"};
+    private String[] words = {"dog", "line", "flower", "house"};
 
-    private String userAnswer;
+    private char userAnswer;
 
     private String hiddenWord;
 
@@ -20,12 +20,25 @@ public class Game {
         return hiddenWord;
     }
 
-    public String inputAnswer(String answer){
+    public char inputAnswer(char answer){
         userAnswer = answer;
         return userAnswer;
     }
 
     public int checkAnswer(){
-
+        int index = hiddenWord.indexOf(userAnswer);
+        if (index != -1)
+        {
+            if (hiddenWord.charAt(index) == userAnswer)
+            {
+                StringBuilder newHiddenWordMask = new StringBuilder(hiddenWordMask);
+                newHiddenWordMask.setCharAt(index, userAnswer);
+                hiddenWordMask = newHiddenWordMask.toString();
+                if (hiddenWordMask.indexOf('*') == -1)
+                    return 100;
+                return index;
+            }
+        }
+        return -1;
     }
 }

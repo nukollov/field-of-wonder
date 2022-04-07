@@ -1,7 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Scanner;
-
 import static org.junit.Assert.*;
 
 public class GameTests {
@@ -17,8 +15,8 @@ public class GameTests {
     @Test
     public void testInputAnswer(){
         Game game = new Game();
-        String answer = game.inputAnswer("а");
-        String reallyAnswer = game.getUserAnswer();
+        char answer = game.inputAnswer('a');
+        char reallyAnswer = game.getUserAnswer();
         assertEquals(answer, reallyAnswer);
     }
 
@@ -26,7 +24,7 @@ public class GameTests {
     public void testCheckAnswer(){
         Game game = new Game();
         game.start();
-        String answer = game.inputAnswer("а");
+        char answer = game.inputAnswer('a');
         int index = game.checkAnswer();
         assertTrue(index >= -1);
         assertTrue(index <= game.getHiddenWord().length() - 1);
